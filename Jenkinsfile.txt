@@ -2,19 +2,25 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone Code') {
+        stage('Checkout') {
             steps {
                 git 'https://github.com/vasanthvk47/Devops-pro.git'
             }
         }
 
-        stage('Install Dependencies') {
+        stage('Build') {
             steps {
                 sh 'npm install'
             }
         }
 
-        stage('Run App') {
+        stage('Test') {
+            steps {
+                sh 'echo "Run your test commands here"'
+            }
+        }
+
+        stage('Run') {
             steps {
                 sh 'node server.js &'
             }
